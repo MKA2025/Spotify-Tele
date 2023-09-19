@@ -1,4 +1,3 @@
-##https://t.me/Spotify_downloa_bot
 """MIT License
 
 Copyright (c) 2022 Daniel
@@ -23,7 +22,6 @@ SOFTWARE.
 """
 import os
 from random import randint 
-#from yt.yt_dlp import YoutubeDL
 from yt_dlp import YoutubeDL
 from mbot import LOGGER,LOG_GROUP,BUG
 from requests import get

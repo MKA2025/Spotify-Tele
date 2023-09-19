@@ -17,7 +17,6 @@ async def sng(bot, message):
           except IndexError:
               await message.reply("give me a query eg `lyrics faded`")
           chat_id = message.from_user.id
-    #      rpl = lyrics(song)
           songGenius = genius.search_song(song)
           rpl = songGenius.lyrics
           await mee.delete()
