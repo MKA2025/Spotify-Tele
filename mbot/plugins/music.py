@@ -13,7 +13,6 @@ async def download_songs(query, download_directory='.'):
         'format': "bestaudio/best",
         'default_search': 'ytsearch',
         'noplaylist': True,
-        "nocheckcertificate": True,
         "outtmpl": f"{download_directory}/%(title)s.mp3",
         "quiet": True,
         "addmetadata": True,
