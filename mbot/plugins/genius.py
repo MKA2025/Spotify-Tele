@@ -1,9 +1,7 @@
-from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton 
+from pyrogram import filters
 from mbot import Mbot,genius_api
 import requests 
 from lyricsgenius import Genius 
-import os
 
 
 API = "https://apis.xditya.me/lyrics?song="

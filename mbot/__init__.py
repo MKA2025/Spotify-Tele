@@ -24,13 +24,8 @@ SOFTWARE.
 from pyrogram import Client
 from os import environ,sys,mkdir,path
 import logging
-from sys import executable
-#from Python_ARQ import ARQ
-from aiohttp import ClientSession
 from dotenv import load_dotenv
-import shutil
 load_dotenv("config.env")
-import os 
 # Log
 logging.basicConfig(
     level=logging.DEBUG, format="%(asctime)s - %(message)s",

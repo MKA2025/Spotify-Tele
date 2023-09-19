@@ -23,7 +23,7 @@ SOFTWARE.
 
 from os import mkdir
 from random import randint
-from mbot import AUTH_CHATS, LOG_GROUP, LOGGER, Mbot
+from mbot import LOG_GROUP, LOGGER, Mbot
 from pyrogram import filters
 from mbot.utils.ytdl import getIds,ytdl_down,audio_opt,thumb_down
 
