@@ -128,7 +128,7 @@ async def spotify_dl(Mbot,message: Message):
                 sleeeps = await sleep (0.9)
                 PForCopy = await message.reply_photo(item[5],caption=f"✔️ Episode Name : `{item[3]}`\n🕔 Duration : {item[4]//60}:{item[4]%60}")
                 reply = await message.reply_text(f"sorry we removed support of  episode 😔 pls send other types album/playlist/track")
-       
+
         elif item_type == "track":
             song = await fetch_spotify_track(client,item_id)
             #sleeeps = await sleep (0.9)
@@ -136,7 +136,7 @@ async def spotify_dl(Mbot,message: Message):
                 item = client.track(track_id=item_id)
             except:
                 pass
-               
+
             try:
                 if not item:
            #         await message.reply_chat_action(enums.ChatAction.UPLOAD_PHOTO)
@@ -195,7 +195,7 @@ async def spotify_dl(Mbot,message: Message):
                    audio = MP3(path, ID3=ID3)
                    audio.tags.add(APIC(mime='image/jpeg',type=3,desc=u'Cover',data=open(thumbnail,'rb').read()))
                    audio.save()
-                except Exception :
+                except Exception:
                     pass   
             except:
                 pass
@@ -226,7 +226,7 @@ async def spotify_dl(Mbot,message: Message):
                 pass
                 PForCopy = await message.reply(f"▶️Playlist:{play['name']}\n📝Description:{play['description']}\n👤Owner:{play['owner']['display_name']}\n❤️Followers:{play['followers']['total']}\n🔢 Total Track:{play['tracks']['total']}\n\n[IMAGES]({play['images'][0]['url']})\n{play['tracks']['uri']}")
                 await message.reply("are you sure it's a valid playlist 🤨?")
-            
+
             for track in tracks['items']:
                 song = await fetch_spotify_track(client,track.get('track').get('id'))
                 item = client.track(track_id=track['track']['id'])
@@ -292,7 +292,7 @@ async def spotify_dl(Mbot,message: Message):
                 #feedback = await message.reply_text(f"Done✅",   
                  #reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Feedback", callback_data="feed")]]))
                # shutil.rmtree(randomdir)
-           
+
         elif item_type == "album":
             alb = client.album(album_id=item_id,)
             try:
@@ -362,7 +362,7 @@ async def spotify_dl(Mbot,message: Message):
                     AForCopy = await message.reply_audio(path,performer=song.get('artist'),title=f"{song.get('name')} - {song.get('artist')}",caption=f"[{song.get('name')}](https://open.spotify.com/track/{song.get('deezer_id')}) | {song.get('album')} - {song.get('artist')}",thumb=thumbnail,parse_mode=enums.ParseMode.MARKDOWN,quote=True)
                 if LOG_GROUP:
                    await copy(PForCopy,AForCopy)
-           
+
         elif item_type == "artist":
              art = client.artist(item_id)
              try:
@@ -372,7 +372,7 @@ async def spotify_dl(Mbot,message: Message):
              except Exception as e:
                  pass
                  await message.reply(f"👤Artist: **{art['name']}­**\n❤️Followers:{art['followers']['total']}­\n🎶Generes:{art['genres']}­\n🗂Category:{art['type']}­\n❤️Popularity:{art['popularity']}­\n\n[IMAGE]({art['images'][0]['url']})\nArtist id:`{art['id']}`")     
-             
+
            #  if u in PREM:
           #      tracks = client.artist_albums(artist_id=item_id)
              #else:
@@ -463,7 +463,7 @@ async def spotify_dl(Mbot,message: Message):
     except UnboundLocalError:
        pass
   #     T = await message.reply_text(f"[{song.get('name')} - {song.get('artist')}](https://open.spotify.com/track/{song.get('deezer_id')}) Track Not Found ⚠️")
-        
+
     except FloodWait as e:
         pass
         await sleep(e.value)
@@ -471,7 +471,7 @@ async def spotify_dl(Mbot,message: Message):
     except IOError as e:
         pass
         K = await  Mbot.send_message(BUG,f" private r: broken {message.chat.id} {message.from_user.mention}")
-           
+
     except Exception as e:
         pass
         LOGGER.error(e)
@@ -496,7 +496,7 @@ async def spotify_dl(Mbot,message: Message):
         except:
             pass 
        # await message.reply_text(f"thumbnail and details is temp removed due to  there is  something going on telegram side:)")
-           
+
 @Mbot.on_callback_query(filters.regex(r"feed"))
 async def feedback(Mbot,query):
       try:
@@ -507,7 +507,7 @@ async def feedback(Mbot,query):
              await copy(K,H)
       except Exception as e:
           pass
-         
+
 @Mbot.on_callback_query(filters.regex(r"bug"))                                                                                                          
 async def bug(_,query):
       try:                                                                                                                                  

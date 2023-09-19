@@ -61,7 +61,7 @@ async def song(_, message):
           await message.reply_chat_action(enums.ChatAction.UPLOAD_AUDIO)
           await k.edit('uploading')
           await message.reply_audio(path)
-      
+
       except IndexError:
           await message.reply("song requies an argument `eg /song faded`")
           return  await k.delete()
