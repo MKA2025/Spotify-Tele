@@ -42,8 +42,8 @@ async def download_songs(query, download_directory='.'):
 async def song(_, message):
       try:
           await message.reply_chat_action(enums.ChatAction.TYPING)
-          k = await message.reply("⌛")
-          print ('⌛')
+          k = await message.reply("░")
+          print ('█')
           try:
               randomdir = f"/tmp/{str(randint(1,100000000))}"
               os.mkdir(randomdir)
