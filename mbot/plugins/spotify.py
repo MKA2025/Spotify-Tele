@@ -1,7 +1,6 @@
 from pyrogram.errors import FloodWait,Forbidden,UserIsBlocked,MessageNotModified,ChatWriteForbidden
 from requests.exceptions import MissingSchema
 from asyncio import sleep
-#from mbot.utils.progress import progress
 import time
 from mutagen.id3 import ID3, APIC,error
 from mutagen.easyid3 import EasyID3
@@ -11,29 +10,18 @@ from mbot.utils.mainhelper import parse_spotify_url,fetch_spotify_track,download
 from mbot.utils.ytdl import getIds,ytdl_down,audio_opt
 from spotipy import Spotify
 from spotipy.oauth2 import SpotifyClientCredentials
-#import psutil
 from os import mkdir
 from os import environ
 from shutil import rmtree
-#from Script import script
 from random import randint
-#import random
-#import eyed3 
 from mutagen.easyid3 import EasyID3
-#import eyed3
 from lyricsgenius import Genius 
 from pyrogram.types import Message
 from pyrogram.errors.rpc_error import RPCError
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram import Client, filters
-#import psutil
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
-#from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS
-#from database.users_chats_db import db
-#from database.ia_filterdb import Media
-#from utils import temp
-#from Script import script
 from pyrogram.errors import ChatAdminRequired
 from mbot import BUG,Mbot
 from mutagen.mp3 import MP3
@@ -173,9 +161,7 @@ async def spotify_dl(Mbot,message: Message):
             try:
                 audio["TITLE"] = f" {song.get('name')}"
                 audio["originaldate"] = song.get('year')
-              #  audio["YEAR_OF_RELEASE"] = song.get('year')
                 audio["WEBSITE"] = "https://t.me/Spotify_downloa_bot"
-            #    audio["GEEK_SCORE"] = "9"
                 audio["ARTIST"] = song.get('artist')                                                                            
                 audio["ALBUM"] = song.get('album')
                 audio["DATE"] = song.get('year')
@@ -195,7 +181,7 @@ async def spotify_dl(Mbot,message: Message):
                    audio = MP3(path, ID3=ID3)
                    audio.tags.add(APIC(mime='image/jpeg',type=3,desc=u'Cover',data=open(thumbnail,'rb').read()))
                    audio.save()
-                except Exception :
+                except Exception:
                     pass   
             except:
                 pass
@@ -205,10 +191,7 @@ async def spotify_dl(Mbot,message: Message):
                await copy(PForCopy,AForCopy)
         elif item_type == "playlist":
             play = client.playlist(playlist_id=item_id,)
-           # if u in PREM:
             tracks = client.playlist_items(playlist_id=item_id,additional_types=['track'], offset=0, market=None)
-          #  else:
-         #        tracks = client.playlist_items(playlist_id=item_id,additional_types=['track'], limit=30, offset=0, market=None) 
             total_tracks = tracks.get('total')
             track_no = 1
             try:
@@ -255,9 +238,7 @@ async def spotify_dl(Mbot,message: Message):
                 try:
                     audio["TITLE"] = f" {song.get('name')} "
                     audio["originaldate"] = song.get('year')
-                #    audio["YEAR_OF_RELEASE"] = song.get('year')
                     audio["WEBSITE"] = "https://t.me/Spotify_downloa_bot"
-              #      audio["GEEK_SCORE"] = "9"
                     audio["ARTIST"] = song.get('artist')                                                                           
                     audio["ALBUM"] = song.get('album')
                     audio["DATE"] = song.get('year')
@@ -303,10 +284,7 @@ async def spotify_dl(Mbot,message: Message):
                 pass
                 err = print(e)
                 PForCopy = await message.reply(f"💽Album: {alb['name']}\n👥Artists: {alb['artists'][0]['name']}\n🎧Total tracks{alb['total_tracks']}\n🗂Category: {alb['album_type']}\n📆Published on: {alb['release_date']}\n\n[IMAGE]({alb['images'][0]['url']})\n{alb['uri']}")
-           # if u in PREM:
             tracks = client.album_tracks(album_id=item_id, offset=0, market=None)
-          #  else:
-          #       tracks = client.album_tracks(album_id=item_id, limit=30, offset=0, market=None)
 
             for track in alb['tracks']['items']:
                 item = client.track(track_id=track['id'])
@@ -329,9 +307,7 @@ async def spotify_dl(Mbot,message: Message):
                 try:
                     audio["TITLE"] = f" {song.get('name')} "
                     audio["originaldate"] = song.get('year')
-            #        audio["YEAR_OF_RELEASE"] = song.get('year')
                     audio["WEBSITE"] = "https://t.me/Spotify_downloa_bot"
-              #      audio["GEEK_SCORE"] = "9"
                     audio["ARTIST"] = song.get('artist')                                                                         
                     audio["ALBUM"] = song.get('album')
                     audio["DATE"] = song.get('year')
@@ -373,9 +349,6 @@ async def spotify_dl(Mbot,message: Message):
                  pass
                  await message.reply(f"👤Artist: **{art['name']}­**\n❤️Followers:{art['followers']['total']}­\n🎶Generes:{art['genres']}­\n🗂Category:{art['type']}­\n❤️Popularity:{art['popularity']}­\n\n[IMAGE]({art['images'][0]['url']})\nArtist id:`{art['id']}`")     
              
-           #  if u in PREM:
-          #      tracks = client.artist_albums(artist_id=item_id)
-             #else:
              await message.reply(f"Sending Top 10 tracks of {art['name']}")
              tracks = client.artist_top_tracks(artist_id=item_id,)
              for item in tracks['tracks'][:10]:
@@ -397,9 +370,7 @@ async def spotify_dl(Mbot,message: Message):
                  try:
                      audio["TITLE"] = f" {song.get('name')}"
                      audio["originaldate"] = song.get('year')
-              #       audio["YEAR_OF_RELEASE"] = song.get('year')
                      audio["WEBSITE"] = "https://t.me/Spotify_downloa_bot"
-                #     audio["GEEK_SCORE"] = "9"
                      audio["ARTIST"] = art.get('name')                                                                            
                      audio["ALBUM"] = song.get('album')
                      audio["DATE"] = song.get('year')

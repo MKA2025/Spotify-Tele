@@ -5,19 +5,15 @@ import time
 import spotipy
 from pyrogram.errors import FloodWait 
 from sys import executable
-#from Script import script
 import psutil, shutil
 from pyrogram import filters,enums
 import os 
-#from utils import get_size
 from mutagen.mp3 import MP3
 from mutagen.id3 import ID3, APIC,error
 from mutagen.easyid3 import EasyID3
 import asyncio
 from asyncio import sleep
-#from Script import script 
 from pyrogram.types import CallbackQuery, Message 
-#from database.users_chats_db import db
 from pyrogram.types import InlineKeyboardButton,InlineKeyboardMarkup
 from pyrogram.raw.functions import Ping
 from mbot import LOG_GROUP, OWNER_ID, SUDO_USERS, Mbot,AUTH_CHATS,BUG
@@ -25,7 +21,6 @@ from os import execvp,sys , execl,environ,mkdir
 from apscheduler.schedulers.background import BackgroundScheduler
 import shutil
 from spotipy.oauth2 import SpotifyClientCredentials
-#from tg import get_readable_file_size, get_readable_time
 botStartTime = time.time()
 MAIN = bool(environ.get('MAIN', False))
 SLEEP = bool(environ.get('SLEEP', False))
@@ -41,7 +36,6 @@ from shutil import rmtree
 from mutagen import File
 from mutagen.flac import FLAC ,Picture
 from lyricsgenius import Genius 
-#from database.database import Database
 supported_link = [ "www.deezer.com", "open.spotify.com",
 	         "deezer.com", "spotify.com"
 ]
@@ -60,9 +54,6 @@ NO_SPAM = [
 ]
 genius = Genius("ChS_Qz9KzZi-g95xGpYOT6lZhg4Ky9ciZoFFGTY-hatB5Pk7HvPhir3SQInE90k7")
 
-#@ScreenShotBot.on_callback_query()
-#async def __(c, m):
-#    await foo(c, m, cb=True)
 
 
 @Mbot.on_message(filters.incoming & filters.text & filters.private,group=4)
@@ -136,9 +127,7 @@ async def search(Mbot: Mbot, query: CallbackQuery):
             try:
                 audio["TITLE"] = f" {song.get('name')}"
                 audio["originaldate"] = song.get('year')
-              #  audio["YEAR_OF_RELEASE"] = song.get('year')
                 audio["WEBSITE"] = "https://t.me/Spotify_downloa_bot"
-            #    audio["GEEK_SCORE"] = "9"
                 audio["ARTIST"] = song.get('artist')                                                                            
                 audio["ALBUM"] = song.get('album')
                 audio["DATE"] = song.get('year')
@@ -158,7 +147,7 @@ async def search(Mbot: Mbot, query: CallbackQuery):
                    audio = MP3(path, ID3=ID3)
                    audio.tags.add(APIC(mime='image/jpeg',type=3,desc=u'Cover',data=open(thumbnail,'rb').read()))
                    audio.save()
-                except Exception :
+                except Exception:
                     pass   
             except:
                 pass

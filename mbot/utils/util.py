@@ -4,12 +4,10 @@ import asyncio
 import time
 import aiofiles
 import aiohttp
-#import wget
 import os
 import datetime
 from json import JSONDecodeError
 import requests
-#import ffmpeg
 from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
 from youtubesearchpython import VideosSearch
