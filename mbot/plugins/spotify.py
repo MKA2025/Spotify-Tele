@@ -165,7 +165,6 @@ async def spotify_dl(Mbot,message: Message):
                 audio["TITLE"] = f" {song.get('name')}"
                 audio["originaldate"] = song.get('year')
               #  audio["YEAR_OF_RELEASE"] = song.get('year')
-                audio["WEBSITE"] = "https://t.me/Spotify_downloa_bot"
             #    audio["GEEK_SCORE"] = "9"
                 audio["ARTIST"] = song.get('artist')                                                                            
                 audio["ALBUM"] = song.get('album')
@@ -247,7 +246,6 @@ async def spotify_dl(Mbot,message: Message):
                     audio["TITLE"] = f" {song.get('name')} "
                     audio["originaldate"] = song.get('year')
                 #    audio["YEAR_OF_RELEASE"] = song.get('year')
-                    audio["WEBSITE"] = "https://t.me/Spotify_downloa_bot"
               #      audio["GEEK_SCORE"] = "9"
                     audio["ARTIST"] = song.get('artist')                                                                           
                     audio["ALBUM"] = song.get('album')
@@ -321,7 +319,6 @@ async def spotify_dl(Mbot,message: Message):
                     audio["TITLE"] = f" {song.get('name')} "
                     audio["originaldate"] = song.get('year')
             #        audio["YEAR_OF_RELEASE"] = song.get('year')
-                    audio["WEBSITE"] = "https://t.me/Spotify_downloa_bot"
               #      audio["GEEK_SCORE"] = "9"
                     audio["ARTIST"] = song.get('artist')                                                                         
                     audio["ALBUM"] = song.get('album')
@@ -389,7 +386,7 @@ async def spotify_dl(Mbot,message: Message):
                      audio["TITLE"] = f" {song.get('name')}"
                      audio["originaldate"] = song.get('year')
               #       audio["YEAR_OF_RELEASE"] = song.get('year')
-                     audio["WEBSITE"] = "https://t.me/Spotify_downloa_bot"
+                     audio["WEBSITE"] = ""
                 #     audio["GEEK_SCORE"] = "9"
                      audio["ARTIST"] = art.get('name')                                                                            
                      audio["ALBUM"] = song.get('album')
@@ -475,25 +472,6 @@ async def spotify_dl(Mbot,message: Message):
             rmtree(randomdir)
         except:
             pass
-        try:
-            await message.reply_text(f"Done✅",   
-         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Feedback", callback_data="feed")]]))
-            await message.reply_text(f"Check out @spotify_downloa(music)  @spotifynewss(News)")
-            await m.delete()
-        except:
-            pass 
-       # await message.reply_text(f"thumbnail and details is temp removed due to  there is  something going on telegram side:)")
-           
-@Mbot.on_callback_query(filters.regex(r"feed"))
-async def feedback(Mbot,query):
-      try:
-          K = await query.message.edit(f"Feedback 🏴‍☠️",
-                  reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Press here", url="https://t.me/dailychannelsbot?start=spotify_downloa_bot")]]))
-          H = print("New Feedback")
-          if BUG:
-             await copy(K,H)
-      except Exception as e:
-          pass
          
 @Mbot.on_callback_query(filters.regex(r"bug"))                                                                                                          
 async def bug(_,query):
@@ -501,7 +479,7 @@ async def bug(_,query):
           K = await query.message.edit(f'please report to the dev say "private version" with above  error occurred message')
           await sleep(2.3)
           H = await query.message.edit(f"Bug Report 🪲",
-                  reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Report to dev ", url="https://t.me/masterolic")]]))
+                  reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Report to dev ", url="https://t.me/MKA2025")]]))
           if BUG:
              await copy(K,H)
       except Exception as e:
