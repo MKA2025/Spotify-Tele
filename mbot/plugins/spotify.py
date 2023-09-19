@@ -195,7 +195,7 @@ async def spotify_dl(Mbot,message: Message):
                    audio = MP3(path, ID3=ID3)
                    audio.tags.add(APIC(mime='image/jpeg',type=3,desc=u'Cover',data=open(thumbnail,'rb').read()))
                    audio.save()
-                except Exception :
+                except Exception:
                     pass   
             except:
                 pass
@@ -452,7 +452,7 @@ async def spotify_dl(Mbot,message: Message):
         pass
         K = await  Mbot.send_message(BUG,f" Private r: socket {message.chat.id}  {message.from_user.id} {message.from_user.mention}")
         k.pin()
-    except (FileNotFoundError, OSError):
+    except (FileNotFoundError, ):
         pass
         await message.reply('Sorry, We Are Unable To Procced It 🤕❣️')
     except BrokenPipeError:
@@ -468,10 +468,6 @@ async def spotify_dl(Mbot,message: Message):
         pass
         await sleep(e.value)
         await message.reply_text(f"Telegram says: [420 FLOOD_WAIT_X] - A wait of {e.value} seconds is required !")
-    except IOError as e:
-        pass
-        K = await  Mbot.send_message(BUG,f" private r: broken {message.chat.id} {message.from_user.mention}")
-           
     except Exception as e:
         pass
         LOGGER.error(e)
