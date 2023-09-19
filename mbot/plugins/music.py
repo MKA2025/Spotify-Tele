@@ -5,7 +5,6 @@ import os
 from asgiref.sync import sync_to_async
 from pyrogram import filters,enums
 from mbot import Mbot
-from random import randint
 import shutil
 async def download_songs(query, download_directory='.'):
     query = f"{query} Lyrics".replace(":", "").replace("\"", "")

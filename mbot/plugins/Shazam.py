@@ -4,7 +4,6 @@ from os import environ,execl
 from sys import executable
 from pyrogram.errors import FloodWait 
 from pyrogram.types import Message , InlineKeyboardMarkup, InlineKeyboardButton ,CallbackQuery
-from pyrogram.errors import FloodWait 
 from asyncio import sleep
 #from database.users_chats_db import db
 #from utils import get_size
@@ -24,17 +23,10 @@ import datetime
 from json import JSONDecodeError
 import requests
 #import ffmpeg 
-from pyrogram.errors import FloodWait, MessageNotModified
-from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.errors import MessageNotModified
 #from youtubesearchpython import VideosSearch
 import yt_dlp
-#from youtube_search import YoutubeSearch
-import requests
 from typing import Tuple
-from pyrogram import filters
-from pyrogram import Client
-#from mbot import OWNER_ID as ADMINS
-import time
 from apscheduler.schedulers.background import BackgroundScheduler
 from mbot.utils.shazam import humanbytes, edit_or_reply, fetch_audio
 NOT_SUPPORT = [ ]
