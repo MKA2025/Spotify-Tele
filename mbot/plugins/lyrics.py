@@ -32,7 +32,7 @@ def search(song):
         r = requests.get(API + song)
         find = r.json()
         return find
-       
+
 def lyrics(song):
         fin = search(song)
         text = fin["lyrics"]

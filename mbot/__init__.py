@@ -76,7 +76,7 @@ if genius_api:
 #    print(f"python arq key is not a valid string skiping it ...! Reason:{e}")
 #   aiohttpsession = ClientSession()
 #    arq = None
-    
+
 class Mbot(Client):
     def  __init__(self):
         name = self.__class__.__name__.lower()
@@ -100,7 +100,7 @@ class Mbot(Client):
         for chat in AUTH_CHATS:
             await self.send_photo(chat,"https://telegra.ph/file/97bc8a091ac1b119b72e4.jpg","**Spotify Downloa Started**")
         LOGGER.info(f"Bot Started As {BOT_INFO.username}\n")
-    
+
     async def stop(self,*args):
         await super().stop()
         LOGGER.info("Bot Stopped, Bye.")
