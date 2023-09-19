@@ -75,7 +75,7 @@ async def _(c, m):
     elif int(message.chat.id) in NO_SPAM:
           return
     u = message.from_user.id
-    K = await message.reply("⌛")
+    K = await message.reply("░")
     query = m.text
     reply_markup=[]
     try:
