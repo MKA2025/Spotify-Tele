@@ -30,18 +30,7 @@ from os import execvp,sys
 
 @Mbot.on_message(filters.command("start"))
 async def start(client,message):
-    reply_markup = [[
-        InlineKeyboardButton(
-            text="Bot Channel", url="https://t.me/Spotify_downloa"),
-        InlineKeyboardButton(
-            text="Repo",
-            url="https://github.com/Masterolic/Spotify-Downloader/"),
-        InlineKeyboardButton(text="Help",callback_data="helphome")
-        ],
-        [
-            InlineKeyboardButton(text="Donate",
-            url="https://www.buymeacoffee.com/Masterolic"),
-        ]]
+
     if LOG_GROUP:
 
         invite_link = await client.create_chat_invite_link(chat_id=(int(LOG_GROUP) if str(LOG_GROUP).startswith("-100") else LOG_GROUP))
@@ -99,5 +88,5 @@ async def help_home(_,query):
     button = [
         [InlineKeyboardButton(text=i, callback_data=f"help_{i}")] for i in HELP
     ]
-    await query.message.edit(f"Hello **{query.from_user.first_name}**, I'm **@NeedMusicRobot**.\nI'm Here to download your music.",
+    await query.message.edit(f"Hello **{query.from_user.first_name}**, I'm **@mkaspotifyripbot**.\nI'm Here to download your music.",
                         reply_markup=InlineKeyboardMarkup(button))
