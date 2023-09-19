@@ -121,7 +121,7 @@ async def search(Mbot: Mbot, query: CallbackQuery):
       randomdir = f"/tmp/{str(randint(1,100000000))}"
       mkdir(randomdir)
       run = True 
-      if run == True:
+      if run is True:
             try:
                path = await download_songs(item,randomdir)
             except Exception as e:
@@ -158,7 +158,7 @@ async def search(Mbot: Mbot, query: CallbackQuery):
                    audio = MP3(path, ID3=ID3)
                    audio.tags.add(APIC(mime='image/jpeg',type=3,desc=u'Cover',data=open(thumbnail,'rb').read()))
                    audio.save()
-                except Exception :
+                except Exception:
                     pass   
             except:
                 pass
