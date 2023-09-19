@@ -109,7 +109,7 @@ async def search(Mbot: Mbot, query: CallbackQuery):
       randomdir = f"/tmp/{str(randint(1,100000000))}"
       mkdir(randomdir)
       run = True 
-      if run == True:
+      if run is True:
             try:
                path = await download_songs(item,randomdir)
             except Exception as e:
