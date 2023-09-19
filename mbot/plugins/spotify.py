@@ -1,14 +1,12 @@
-from pyrogram.errors import FloodWait,Forbidden,UserIsBlocked,MessageNotModified,ChatWriteForbidden
+from pyrogram.errors import FloodWait,Forbidden,UserIsBlocked,ChatWriteForbidden
 from requests.exceptions import MissingSchema
 from asyncio import sleep
-#from mbot.utils.progress import progress
-import time
-from mutagen.id3 import ID3, APIC,error
+from mutagen.id3 import ID3, APIC
 from mutagen.easyid3 import EasyID3
-from mbot import AUTH_CHATS, LOGGER, Mbot,LOG_GROUP,BUG
+from mbot import LOGGER, Mbot,LOG_GROUP,BUG
 from pyrogram import filters,enums
-from mbot.utils.mainhelper import parse_spotify_url,fetch_spotify_track,download_songs,thumb_down,copy,forward 
-from mbot.utils.ytdl import getIds,ytdl_down,audio_opt
+from mbot.utils.mainhelper import parse_spotify_url,fetch_spotify_track,download_songs,thumb_down,copy 
+from mbot.utils.ytdl import getIds
 from spotipy import Spotify
 from spotipy.oauth2 import SpotifyClientCredentials
 #import psutil
@@ -25,16 +23,9 @@ from lyricsgenius import Genius
 from pyrogram.types import Message
 from pyrogram.errors.rpc_error import RPCError
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from pyrogram import Client, filters
+from pyrogram import filters
 #import psutil
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
-#from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS
-#from database.users_chats_db import db
-#from database.ia_filterdb import Media
-#from utils import temp
-#from Script import script
-from pyrogram.errors import ChatAdminRequired
 from mbot import BUG,Mbot
 from mutagen.mp3 import MP3
 ADMINS = 1794941609
@@ -195,7 +186,7 @@ async def spotify_dl(Mbot,message: Message):
                    audio = MP3(path, ID3=ID3)
                    audio.tags.add(APIC(mime='image/jpeg',type=3,desc=u'Cover',data=open(thumbnail,'rb').read()))
                    audio.save()
-                except Exception :
+                except Exception:
                     pass   
             except:
                 pass

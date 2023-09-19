@@ -1,36 +1,16 @@
-import pytz
-import inspect
-import logging
-from datetime import datetime
-import os
 import math
 import time
 import shlex
 import asyncio
-from math import ceil
-from pyrogram import Client
-from traceback import format_exc
 from typing import Tuple, Union
 from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import (
-    InlineKeyboardButton,
-    InlineQueryResultArticle,
-    InputTextMessageContent,
     Message,
 )
-import mimetypes
 import functools
-import multiprocessing
-from concurrent.futures import ThreadPoolExecutor
-import sys
-import traceback
-from functools import wraps
 from typing import Callable, Coroutine, Dict, List, Tuple, Union
-import aiohttp
-from PIL import Image
-from pyrogram import Client as pbot
 from pyrogram.errors import FloodWait, MessageNotModified
-from pyrogram.types import Chat, Message, User
+from pyrogram.types import Message
 
 async def delete_or_pass(message):
     """Delete Message If Its From Self Else Just Pass"""

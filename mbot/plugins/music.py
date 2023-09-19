@@ -1,8 +1,6 @@
 from random import randint 
 from yt_dlp import YoutubeDL
-from requests import get
 import os
-from asgiref.sync import sync_to_async
 from pyrogram import filters,enums
 from mbot import Mbot
 from random import randint

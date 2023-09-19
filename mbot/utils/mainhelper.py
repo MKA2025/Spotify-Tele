@@ -21,13 +21,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
-import os
-from random import randint 
 #from yt.yt_dlp import YoutubeDL
 from yt_dlp import YoutubeDL
-from mbot import LOGGER,LOG_GROUP,BUG
+from mbot import LOGGER,LOG_GROUP
 from requests import get
-from asyncio import sleep 
 from asgiref.sync import sync_to_async
 @sync_to_async
 def parse_deezer_url(url):

@@ -1,29 +1,21 @@
-from pyrogram.errors import FloodWait,Forbidden,UserIsBlocked,MessageNotModified,ChatWriteForbidden 
-from requests.exceptions import MissingSchema
+from pyrogram.errors import FloodWait 
 from datetime import datetime
 import time 
 import spotipy
-from pyrogram.errors import FloodWait 
-from sys import executable
 #from Script import script
-import psutil, shutil
+import shutil
 from pyrogram import filters,enums
-import os 
 #from utils import get_size
 from mutagen.mp3 import MP3
-from mutagen.id3 import ID3, APIC,error
+from mutagen.id3 import ID3, APIC
 from mutagen.easyid3 import EasyID3
-import asyncio
 from asyncio import sleep
 #from Script import script 
-from pyrogram.types import CallbackQuery, Message 
+from pyrogram.types import CallbackQuery 
 #from database.users_chats_db import db
 from pyrogram.types import InlineKeyboardButton,InlineKeyboardMarkup
-from pyrogram.raw.functions import Ping
-from mbot import LOG_GROUP, OWNER_ID, SUDO_USERS, Mbot,AUTH_CHATS,BUG
-from os import execvp,sys , execl,environ,mkdir
-from apscheduler.schedulers.background import BackgroundScheduler
-import shutil
+from mbot import Mbot,BUG
+from os import environ,mkdir
 from spotipy.oauth2 import SpotifyClientCredentials
 #from tg import get_readable_file_size, get_readable_time
 botStartTime = time.time()
@@ -32,14 +24,10 @@ SLEEP = bool(environ.get('SLEEP', False))
 client_credentials_manager = SpotifyClientCredentials()
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 import time
-import datetime
 from random import randint
 from pyrogram import filters
-from mbot.utils.mainhelper import parse_spotify_url,fetch_spotify_track,download_songs,thumb_down,copy,forward 
-from mbot.utils.ytdl import getIds,ytdl_down,audio_opt
+from mbot.utils.mainhelper import fetch_spotify_track,download_songs,thumb_down,copy 
 from shutil import rmtree
-from mutagen import File
-from mutagen.flac import FLAC ,Picture
 from lyricsgenius import Genius 
 #from database.database import Database
 supported_link = [ "www.deezer.com", "open.spotify.com",
@@ -158,7 +146,7 @@ async def search(Mbot: Mbot, query: CallbackQuery):
                    audio = MP3(path, ID3=ID3)
                    audio.tags.add(APIC(mime='image/jpeg',type=3,desc=u'Cover',data=open(thumbnail,'rb').read()))
                    audio.save()
-                except Exception :
+                except Exception:
                     pass   
             except:
                 pass
