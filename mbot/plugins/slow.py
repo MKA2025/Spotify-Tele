@@ -3,7 +3,6 @@ from requests.exceptions import MissingSchema
 from datetime import datetime
 import time 
 import spotipy
-from pyrogram.errors import FloodWait 
 from sys import executable
 #from Script import script
 import psutil, shutil
@@ -23,7 +22,6 @@ from pyrogram.raw.functions import Ping
 from mbot import LOG_GROUP, OWNER_ID, SUDO_USERS, Mbot,AUTH_CHATS,BUG
 from os import execvp,sys , execl,environ,mkdir
 from apscheduler.schedulers.background import BackgroundScheduler
-import shutil
 from spotipy.oauth2 import SpotifyClientCredentials
 #from tg import get_readable_file_size, get_readable_time
 botStartTime = time.time()
@@ -31,10 +29,7 @@ MAIN = bool(environ.get('MAIN', False))
 SLEEP = bool(environ.get('SLEEP', False))
 client_credentials_manager = SpotifyClientCredentials()
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
-import time
-import datetime
 from random import randint
-from pyrogram import filters
 from mbot.utils.mainhelper import parse_spotify_url,fetch_spotify_track,download_songs,thumb_down,copy,forward 
 from mbot.utils.ytdl import getIds,ytdl_down,audio_opt
 from shutil import rmtree
@@ -158,7 +153,7 @@ async def search(Mbot: Mbot, query: CallbackQuery):
                    audio = MP3(path, ID3=ID3)
                    audio.tags.add(APIC(mime='image/jpeg',type=3,desc=u'Cover',data=open(thumbnail,'rb').read()))
                    audio.save()
-                except Exception :
+                except Exception:
                     pass   
             except:
                 pass

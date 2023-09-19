@@ -25,12 +25,10 @@ from concurrent.futures import ThreadPoolExecutor
 import sys
 import traceback
 from functools import wraps
-from typing import Callable, Coroutine, Dict, List, Tuple, Union
+from typing import Callable, Coroutine, Dict, List, 
 import aiohttp
 from PIL import Image
-from pyrogram import Client as pbot
-from pyrogram.errors import FloodWait, MessageNotModified
-from pyrogram.types import Chat, Message, User
+from pyrogram.types import Chat, User
 
 async def delete_or_pass(message):
     """Delete Message If Its From Self Else Just Pass"""

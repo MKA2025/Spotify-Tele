@@ -17,17 +17,12 @@ from os import environ
 from shutil import rmtree
 #from Script import script
 from random import randint
-#import random
-#import eyed3 
-from mutagen.easyid3 import EasyID3
 #import eyed3
 from lyricsgenius import Genius 
 from pyrogram.types import Message
 from pyrogram.errors.rpc_error import RPCError
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from pyrogram import Client, filters
-#import psutil
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram import Client, 
 from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInvalid
 #from info import ADMINS, LOG_CHANNEL, SUPPORT_CHAT, MELCOW_NEW_USERS
 #from database.users_chats_db import db
@@ -35,10 +30,8 @@ from pyrogram.errors.exceptions.bad_request_400 import MessageTooLong, PeerIdInv
 #from utils import temp
 #from Script import script
 from pyrogram.errors import ChatAdminRequired
-from mbot import BUG,Mbot
 from mutagen.mp3 import MP3
 ADMINS = 1794941609
-from requests.exceptions import MissingSchema
 client = Spotify(auth_manager=SpotifyClientCredentials())
 PICS = ("mbot/1162775.jpg mbot/danny-howe-bn-D2bCvpik-unsplash.jpg mbot/saurabh-gill-38RthwbB3nE-unsplash.jpg").split()
 MAIN = bool(environ.get('MAIN', None))
@@ -195,7 +188,7 @@ async def spotify_dl(Mbot,message: Message):
                    audio = MP3(path, ID3=ID3)
                    audio.tags.add(APIC(mime='image/jpeg',type=3,desc=u'Cover',data=open(thumbnail,'rb').read()))
                    audio.save()
-                except Exception :
+                except Exception:
                     pass   
             except:
                 pass
